@@ -1,0 +1,181 @@
+@charset "utf-8";
+
+// copy from font-awesome
+
+$fi-font-path: "fonts" !default;
+$fi-font-size-base: 14px !default;
+$fi-line-height-base: 1 !default;
+$fi-css-prefix: fi !default;
+$fi-border-color: #eee !default;
+$fi-inverse: #fff !default;
+$fi-li-width: (30em / 14) !default;
+
+@font-face {
+  font-family: "app-icons";
+  src: url('#{$fi-font-path}/app-icons.eot');
+  src: url('#{$fi-font-path}/app-icons.eot?#iefix') format('eot'),
+  url('#{$fi-font-path}/app-icons.woff2') format('woff2'),
+  url('#{$fi-font-path}/app-icons.woff') format('woff'),
+  url('#{$fi-font-path}/app-icons.ttf') format('truetype');
+}
+
+.fi {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  font-family: "app-icons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  speak: none;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.fi-sm {
+  font-size: small;
+}
+
+.fi-lg {
+  font-size: (4em / 3);
+  line-height: (3em / 4);
+  vertical-align: -15%;
+}
+
+.fi-2x {
+  font-size: 2em;
+}
+
+.fi-3x {
+  font-size: 3em;
+}
+
+.fi-4x {
+  font-size: 4em;
+}
+
+.fi-5x {
+  font-size: 5em;
+}
+
+.fi-spin {
+  -webkit-animation: fi-spin 2s infinite linear;
+  animation: fi-spin 2s infinite linear;
+}
+
+.fi-pulse {
+  -webkit-animation: fi-spin 1s infinite steps(8);
+  animation: fi-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes fi-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes fi-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@mixin fi-icon() {
+  display: inline-block;
+  font: normal normal normal #{$fi-font-size-base}/#{$fi-line-height-base} app-icons; // shortening font declaration
+  font-size: inherit; // can't have font-size inherit on line above, so need to override
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+@mixin fi-icon-rotate($degrees, $rotation) {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation});
+  -webkit-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
+@mixin fi-icon-flip($horiz, $vert, $rotation) {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation});
+  -webkit-transform: scale($horiz, $vert);
+  -ms-transform: scale($horiz, $vert);
+  transform: scale($horiz, $vert);
+}
+
+// Rotated & Flipped Icons
+// -------------------------
+
+.fi-rotate-90 {
+  @include fi-icon-rotate(90deg, 1);
+}
+
+.fi-rotate-180 {
+  @include fi-icon-rotate(180deg, 2);
+}
+
+.fi-rotate-270 {
+  @include fi-icon-rotate(270deg, 3);
+}
+
+.fi-flip-horizontal {
+  @include fi-icon-flip(-1, 1, 0);
+}
+
+.fi-flip-vertical {
+  @include fi-icon-flip(1, -1, 2);
+}
+
+// Hook for IE8-9
+// -------------------------
+
+:root .fi-rotate-90,
+:root .fi-rotate-180,
+:root .fi-rotate-270,
+:root .fi-flip-horizontal,
+:root .fi-flip-vertical {
+  filter: none;
+}
+
+// List Icons
+// -------------------------
+
+.fi-ul {
+  padding-left: 0;
+  margin-left: $fi-li-width;
+  list-style-type: none;
+  > li {
+    position: relative;
+  }
+}
+
+.fi-li {
+  position: absolute;
+  left: -$fi-li-width;
+  width: $fi-li-width;
+  top: (2em / 14);
+  text-align: center;
+  &.fi-lg {
+    left: -$fi-li-width + (4em / 14);
+  }
+}
+
+// inject:font:scss
+$fi-var-product: "\EA05" !default;
+.fi-product:before {
+  content: $fi-var-product;
+}
+// endinject

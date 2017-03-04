@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+  <!-- 根据需要定制安全策略 -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * file: data: 'unsafe-inline' 'unsafe-eval' ">
+  <title>Showcase</title>
+  <!-- build:css styles/app.css -->
+  <!-- inject:app:css -->
+  <!-- endinject -->
+  <!-- endbuild -->
+
+  <!-- build:css main.css -->
+  <link rel="stylesheet" href="main.css">
+  <!-- endbuild -->
+</head>
+<body ng-app="app">
+<div ui-view></div>
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="../bower_components/lodash/lodash.js" charset="utf-8"></script>
+<script src="../bower_components/angular/angular.js" charset="utf-8"></script>
+<script src="../bower_components/angular-resource/angular-resource.js" charset="utf-8"></script>
+<script src="../bower_components/angular-ui-router/release/angular-ui-router.js" charset="utf-8"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/main.js -->
+<!-- inject:app:js -->
+<script src="app.js" charset="utf-8"></script>
+<script src="components/product/list.js" charset="utf-8"></script>
+<script src="configs/config.js" charset="utf-8"></script>
+<script src="configs/routes.js" charset="utf-8"></script>
+<script src="configs/run.js" charset="utf-8"></script>
+<script src="constants/api.js" charset="utf-8"></script>
+<script src="constants/page.js" charset="utf-8"></script>
+<script src="controllers/home/_routes.js" charset="utf-8"></script>
+<script src="controllers/home/index.js" charset="utf-8"></script>
+<script src="controllers/product/_routes.js" charset="utf-8"></script>
+<script src="controllers/product/list.js" charset="utf-8"></script>
+<script src="services/interceptors/AuthHandler.js" charset="utf-8"></script>
+<script src="services/interceptors/ErrorHandler.js" charset="utf-8"></script>
+<script src="services/interceptors/LoadingHandler.js" charset="utf-8"></script>
+<script src="services/interceptors/RewriteHandler.js" charset="utf-8"></script>
+<script src="services/sao/Products.js" charset="utf-8"></script>
+<!-- endinject -->
+<!-- build:js scripts/templates.js -->
+<script src="templates.js" charset="utf-8"></script>
+<!-- endbuild -->
+
+</body>
+</html>

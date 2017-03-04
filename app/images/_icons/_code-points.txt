@@ -1,0 +1,6 @@
+EA01 arrow-down
+EA02 chevron-left
+EA03 home
+EA04 my
+EA05 product
+EA06 reveal
